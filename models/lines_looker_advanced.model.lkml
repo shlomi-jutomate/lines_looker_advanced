@@ -19,7 +19,13 @@ explore: orders_transformation {}
 
 explore: customers_transformation {}
 
-explore: lineitems_transformation {}
+explore: lineitems_transformation {
+ join: orders_transformation {
+    type: left_outer
+    sql_on: ${lineitems_transformation.order_key} = ${orders_transformation.order_key} ;;
+    relationship: many_to_one
+  }
+}
 
 explore: suppliers_transformation {}
 
@@ -27,4 +33,10 @@ explore: partsupps_transformation {}
 
 explore: parts_transformation {}
 
-explore: regions_transformation {}
+explore: regions_transformation {
+  join: nations_transformation {
+    type: left_outer
+    sql_on: ${regions_transformation.region_key} = ${nations_transformation.region_key};;
+    relationship: many_to_one
+  }
+}
