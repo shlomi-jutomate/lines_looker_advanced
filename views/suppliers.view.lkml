@@ -42,7 +42,7 @@ view: suppliers{
     label: "General Profile"
     sql: "general_profile";;  # Replace "general_profile" with a valid SQL expression from your data.
     html: <a href="/dashboards/735" >
-            <img src="{https://static.wixstatic.com/media/6b805b_84a20d931d4048ccb5fda6410cfd5838~mv2.png/v1/fill/w_175,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/jutomate%202023.png}" width="{175}" height="{51}"/>
+            <img src="https://static.wixstatic.com/media/6b805b_84a20d931d4048ccb5fda6410cfd5838~mv2.png/v1/fill/w_175,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/jutomate%202023.png" width="175" height="51"/>
         </a> ;;
   }
 
@@ -52,8 +52,9 @@ view: suppliers{
     label: "General Profile Selected"
     sql: "general_profile";;  # Replace "general_profile" with a valid SQL expression from your data.
     html: <a href="/dashboards/735" >
-            <img src="{https://static.wixstatic.com/media/6b805b_84a20d931d4048ccb5fda6410cfd5838~mv2.png/v1/fill/w_175,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/jutomate%202023.png}" width="{175}" height="{51}"/>
+            <img src="https://static.wixstatic.com/media/6b805b_84a20d931d4048ccb5fda6410cfd5838~mv2.png/v1/fill/w_175,h_51,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/jutomate%202023.png" width="175" height="51"/>
         </a> ;;
   }
+
 
 }
