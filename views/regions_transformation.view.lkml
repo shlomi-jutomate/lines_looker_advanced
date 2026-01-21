@@ -1,4 +1,4 @@
-view: regions_transformation {
+view: regions{
   sql_table_name: [looker_advanced_training.regions_transformation] ;;
 
   dimension: comment {

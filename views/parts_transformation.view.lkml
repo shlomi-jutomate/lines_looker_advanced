@@ -1,4 +1,4 @@
-view: parts_transformation {
+view: parts{
   sql_table_name: [looker_advanced_training.parts_transformation] ;;
 
   dimension: brand {

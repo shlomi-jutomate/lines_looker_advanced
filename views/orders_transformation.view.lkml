@@ -1,4 +1,4 @@
-view: orders_transformation {
+view: orders{
   sql_table_name: [looker_advanced_training.orders_transformation] ;;
 
   dimension: clerk {

@@ -1,4 +1,4 @@
-view: partsupps_transformation {
+view: partsupps{
   sql_table_name: [looker_advanced_training.partsupps_transformation] ;;
 
   dimension: available_quantity {

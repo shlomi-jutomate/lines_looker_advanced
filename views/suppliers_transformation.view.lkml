@@ -1,4 +1,4 @@
-view: suppliers_transformation {
+view: suppliers{
   sql_table_name: [looker_advanced_training.suppliers_transformation] ;;
 
   dimension: account_balance {

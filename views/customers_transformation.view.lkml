@@ -1,4 +1,4 @@
-view: customers_transformation {
+view: customers{
   sql_table_name: [looker_advanced_training.customers_transformation] ;;
 
   dimension: account_balance {

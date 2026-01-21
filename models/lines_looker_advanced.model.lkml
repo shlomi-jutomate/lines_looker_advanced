@@ -13,30 +13,66 @@ persist_with: lines_looker_advanced_default_datagroup
 # NOTE: please see https://cloud.google.com/looker/docs/r/sql/bigquery?version=25.20
 # NOTE: for BigQuery specific considerations
 
-explore: nations_transformation {}
-
-explore: orders_transformation {}
-
-explore: customers_transformation {}
-
-explore: lineitems_transformation {
- join: orders_transformation {
+explore: nations {
+  join: suppliers{
     type: left_outer
-    sql_on: ${lineitems_transformation.order_key} = ${orders_transformation.order_key} ;;
-    relationship: many_to_one
+    sql_on: ${nations.nation_key} = ${suppliers.supplier_nation_key};;
+    relationship: one_to_many
+  }
+
+  join: customers{
+    type: left_outer
+    sql_on: ${nations.nation_key} = ${customers.nation_key} ;;
+    relationship: one_to_many
   }
 }
 
-explore: suppliers_transformation {}
-
-explore: partsupps_transformation {}
-
-explore: parts_transformation {}
-
-explore: regions_transformation {
-  join: nations_transformation {
+explore: orders {
+  join: lineitems {
     type: left_outer
-    sql_on: ${regions_transformation.region_key} = ${nations_transformation.region_key};;
-    relationship: many_to_one
+    sql_on: ${lineitems.order_key} = ${orders.order_key} ;;
+    relationship: one_to_many
+  }
+}
+
+explore: customers{
+  join: orders {
+    type: left_outer
+    sql_on: ${customers.customer_key} = ${orders.customer_key} ;;
+    relationship: one_to_many
+  }
+}
+
+explore: lineitems {}
+
+explore: suppliers{
+  join: partsupps{
+    type: left_outer
+    sql_on:  ${suppliers.supplier_key} = ${partsupps.supplier_key} ;;
+    relationship: one_to_many
+  }
+}
+
+explore: partsupps{
+  join: lineitems{
+    type: left_outer
+    sql_on: ${partsupps.part_key} = ${lineitems.part_key} ;;
+    relationship: one_to_many
+  }
+}
+
+explore: parts{
+  join: partsupps{
+    type: left_outer
+    sql_on: ${parts.part_key} = ${partsupps.part_key} ;;
+    relationship: one_to_many
+  }
+}
+
+explore: regions {
+  join: nations {
+    type: left_outer
+    sql_on: ${regions.region_key} = ${nations.region_key};;
+    relationship: one_to_many
   }
 }
