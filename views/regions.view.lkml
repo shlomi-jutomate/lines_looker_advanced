@@ -6,6 +6,7 @@ view: regions{
     sql: ${TABLE}.comment ;;
   }
   dimension: region_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.region_key ;;
   }

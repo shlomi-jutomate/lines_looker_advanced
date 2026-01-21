@@ -6,6 +6,7 @@ view: nations{
     sql: ${TABLE}.comment ;;
   }
   dimension: nation_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.nation_key ;;
   }

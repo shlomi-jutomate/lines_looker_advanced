@@ -21,6 +21,7 @@ view: orders{
     sql: ${TABLE}.order_date ;;
   }
   dimension: order_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.order_key ;;
   }

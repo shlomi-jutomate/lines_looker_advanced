@@ -14,6 +14,7 @@ view: customers{
     sql: ${TABLE}.customer_address ;;
   }
   dimension: customer_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.customer_key ;;
   }

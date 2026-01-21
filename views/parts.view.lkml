@@ -18,6 +18,7 @@ view: parts{
     sql: ${TABLE}.manufacturer ;;
   }
   dimension: part_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.part_key ;;
   }

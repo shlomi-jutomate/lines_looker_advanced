@@ -14,6 +14,7 @@ view: suppliers{
     sql: ${TABLE}.supplier_address ;;
   }
   dimension: supplier_key {
+    primary_key: yes
     type: number
     sql: ${TABLE}.supplier_key ;;
   }
