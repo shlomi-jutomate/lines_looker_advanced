@@ -1,5 +1,5 @@
 view: customers{
-  sql_table_name: [looker_advanced_training.customers_transformation] ;;
+  sql_table_name: `looker_advanced_training.customers_transformation` ;;
 
   dimension: account_balance {
     type: number

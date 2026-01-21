@@ -1,5 +1,5 @@
 view: parts{
-  sql_table_name: [looker_advanced_training.parts_transformation] ;;
+  sql_table_name: `looker_advanced_training.parts_transformation` ;;
 
   dimension: brand {
     type: string

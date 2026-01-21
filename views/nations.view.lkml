@@ -1,5 +1,5 @@
 view: nations{
-  sql_table_name: [looker_advanced_training.nations_transformation] ;;
+  sql_table_name: `looker_advanced_training.nations_transformation` ;;
 
   dimension: comment {
     type: string

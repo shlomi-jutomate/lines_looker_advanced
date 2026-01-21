@@ -1,5 +1,5 @@
 view: lineitems{
-  sql_table_name: [looker_advanced_training.lineitems_transformation] ;;
+  sql_table_name: `looker_advanced_training.lineitems_transformation` ;;
 
   dimension: comment {
     type: string
