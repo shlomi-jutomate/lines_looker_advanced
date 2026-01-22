@@ -6,15 +6,11 @@ view: top_n_nations {
       # column: nation_title_handle {
       #   field: suppliers.supplier_name
       # }
-
-
       bind_all_filters: yes
-
       derived_column: ranking {
-        sql: rank() over (order by {% parameter nation_rank_measure_selection %} DESC;;
+        sql: rank() over (order by {% parameter nation_rank_measure_selection %} DESC);;
         # , count_suppliers desc) ;;
       }
-
     }
   }
 
