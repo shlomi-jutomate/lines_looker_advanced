@@ -71,7 +71,6 @@ explore: regions {
 }
 
 explore: suppliers {
-  label: "master"
   extends: [suppliers]
   # persist_with: test_no_pdt
   join: top_n_nations {
