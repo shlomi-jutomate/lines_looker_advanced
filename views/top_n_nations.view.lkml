@@ -105,10 +105,10 @@ view: top_n_nations {
     type: string
     sql:
       CASE
-        WHEN ${nation_rank} <= {% parameter top_rank_limit %}
+        WHEN ${nation_rank} < {% parameter top_rank_limit %}
           THEN
             CASE
-              WHEN ${nation_rank}<=10 THEN  CONCAT('0', CAST(${nation_rank} AS STRING))
+              WHEN ${nation_rank}< 10 THEN  CONCAT('0', CAST(${nation_rank} AS STRING))
               ELSE CAST(${nation_rank} AS STRING)
             END
         ELSE 'Other'
