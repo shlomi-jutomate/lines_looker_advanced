@@ -3,6 +3,7 @@ view: top_n_nations {
     explore_source: suppliers {
       column: supplier_nation_key { field: suppliers.supplier_nation_key }
       column: count_suppliers { field: suppliers.count}
+      column: account_balance { field: suppliers.account_balance}
       # column: nation_title_handle {
       #   field: suppliers.supplier_name
       # }
@@ -21,6 +22,11 @@ view: top_n_nations {
   }
 
   dimension: count_suppliers {
+    description: ""
+    type: number
+  }
+
+  dimension: account_balance {
     description: ""
     type: number
   }
@@ -63,6 +69,10 @@ view: top_n_nations {
     allowed_value: {
       label: "Total Suppliers"
       value: "count_suppliers"
+    }
+    allowed_value: {
+      label: "Account Balance"
+      value: "account_balance"
     }
   }
 
