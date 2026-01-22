@@ -3,14 +3,11 @@ view: top_n_nations {
     explore_source: suppliers {
       column: supplier_nation_key { field: suppliers.supplier_nation_key }
       column: count_suppliers { field: suppliers.count}
-      column: account_balance { field: suppliers.account_balance}
-      # column: nation_title_handle {
-      #   field: suppliers.supplier_name
-      # }
+      column: total_account_balance { field: suppliers.total_account_balance}
+
       bind_all_filters: yes
       derived_column: ranking {
-        sql: rank() over (order by {% parameter nation_rank_measure_selection %} DESC);;
-        # , count_suppliers desc) ;;
+        sql: RANK() OVER (ORDER BY {% parameter nation_rank_measure_selection %} DESC);;
       }
     }
   }
@@ -26,8 +23,8 @@ view: top_n_nations {
     type: number
   }
 
-  dimension: account_balance {
-    description: ""
+  dimension: total_account_balance {
+    hidden:  yes
     type: number
   }
 
@@ -36,10 +33,6 @@ view: top_n_nations {
     type: number
     sql: ${TABLE}.ranking ;;
   }
-
-  # dimension: nation_title_handle{
-  #   description: ""
-  # }
 
 
 
@@ -63,16 +56,16 @@ view: top_n_nations {
   parameter: nation_rank_measure_selection {
     view_label: "Top N Ranking"
     label: "Rank By Metric"
-    description: "Specify which metric to rank nations by"
     type: unquoted
     default_value: "count_suppliers"
+
     allowed_value: {
       label: "Total Suppliers"
       value: "count_suppliers"
     }
     allowed_value: {
-      label: "Account Balance"
-      value: "account_balance"
+      label: "Total Account Balance"
+      value: "total_account_balance" #or account_balance
     }
   }
 

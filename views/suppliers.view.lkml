@@ -36,6 +36,13 @@ view: suppliers{
     drill_fields: [supplier_name]
   }
 
+  measure: total_account_balance {
+    label: "Total Account Balance"
+    type: sum
+    sql: ${account_balance} ;;
+    value_format_name: usd
+  }
+
 # Dimension for the default icon link
   dimension: general_profile_link {
     type: string
