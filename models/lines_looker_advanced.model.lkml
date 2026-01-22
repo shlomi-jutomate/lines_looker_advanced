@@ -45,13 +45,6 @@ explore: customers{
 
 explore: lineitems {}
 
-explore: suppliers{
-  join: partsupps{
-    type: left_outer
-    sql_on:  ${suppliers.supplier_key} = ${partsupps.supplier_key} ;;
-    relationship: one_to_many
-  }
-}
 
 explore: partsupps{
   join: lineitems{
@@ -75,6 +68,28 @@ explore: regions {
     sql_on: ${regions.region_key} = ${nations.region_key};;
     relationship: one_to_many
   }
+}
 
+explore: suppliers {
+  label: "master"
+  extends: [suppliers]
+  # persist_with: test_no_pdt
+  join: top_n_nations {
+    view_label: "Top N Ranking"
+    type: inner
+    relationship: many_to_one
+    sql_on: ${suppliers.supplier_nation_key} = ${top_n_nations.supplier_nation_key} ;;
+  }
 
+  join: partsupps{
+    type: left_outer
+    sql_on:  ${suppliers.supplier_key} = ${partsupps.supplier_key} ;;
+    relationship: one_to_many
+  }
+
+  join: nations {
+    type: left_outer
+    sql_on:  ${suppliers.supplier_nation_key} = ${nations.nation_key} ;;
+    relationship: many_to_one
+  }
 }
