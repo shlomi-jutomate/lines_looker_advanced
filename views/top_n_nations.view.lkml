@@ -3,7 +3,6 @@ view: top_n_nations {
     explore_source: suppliers {
       column: supplier_nation_key { field: suppliers.supplier_nation_key }
       column: count_suppliers { field: suppliers.count}
-      column: total_account_balance { field: suppliers.total_account_balance}
 
       bind_all_filters: yes
       derived_column: ranking {
@@ -23,11 +22,6 @@ view: top_n_nations {
     type: number
   }
 
-  dimension: total_account_balance {
-    hidden:  yes
-    type: number
-  }
-
   dimension: nation_rank {
     hidden: yes
     type: number
@@ -36,22 +30,6 @@ view: top_n_nations {
 
 
 
-
-  # measure: dynamic_measure {
-  #   view_label: "Top N Ranking"
-  #   label_from_parameter: nation_rank_measure_selection
-  #   type: number
-  #   sql:
-  #     {% if nation_rank_measure_selection._parameter_value == 'count' %} ${suppliers.count}
-  #     {% else %}  ${suppliers.count}
-  #     {% endif %}
-  #   ;;
-  #   html:
-  #     {% if nation_rank_measure_selection._parameter_value == 'count' %}  {{ suppliers.count._rendered_value }}
-  #     {% else %} {{ suppliers._rendered_value }}
-  #     {% endif %}
-  #   ;;
-  # }
 
   parameter: nation_rank_measure_selection {
     view_label: "Top N Ranking"
@@ -62,10 +40,6 @@ view: top_n_nations {
     allowed_value: {
       label: "Total Suppliers"
       value: "count_suppliers"
-    }
-    allowed_value: {
-      label: "Total Account Balance"
-      value: "total_account_balance" #or account_balance
     }
   }
 
@@ -89,7 +63,6 @@ view: top_n_nations {
 
   dimension: nation_name_top_nation {
     view_label: "Top N Ranking"
-    # label: "Nations (Top {% if top_rank_limit._is_filtered %}{% parameter top_rank_limit %}{% else %}N{% endif %})"
     label: "Nation Name (Top N)"
     description: "Shows the Nation Name if in Top N, otherwise 'Other'"
     order_by_field: nation_rank_top_nations
