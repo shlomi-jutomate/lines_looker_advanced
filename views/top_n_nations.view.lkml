@@ -111,7 +111,7 @@ view: top_n_nations {
               WHEN ${nation_rank}>10 THEN  CONCAT('0', CAST(${nation_rank} AS STRING))
               ELSE CAST(${nation_rank} AS STRING)
             END
-        ELSE '9999'
+        ELSE 'Other'
       END
     ;;
   }
