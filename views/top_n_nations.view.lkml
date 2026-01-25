@@ -46,21 +46,25 @@ view: top_n_nations {
   parameter: top_rank_limit {
     view_label: "Top N Ranking"
     type: unquoted
-    default_value: "25"
+    default_value: "10"
+
     allowed_value: {
       label: "Top 3"
-      value: "4"
+      value: "3"
     }
     allowed_value: {
       label: "Top 5"
-      value: "6"
+      value: "5"
     }
     allowed_value: {
       label: "Top 10"
-      value: "11"
+      value: "10"
+    }
+    allowed_value: {
+      label: "Top 25"
+      value: "25"
     }
   }
-
   dimension: nation_name_top_nation {
     view_label: "Top N Ranking"
     label: "Nation Name (Top N)"
@@ -84,7 +88,7 @@ view: top_n_nations {
         WHEN ${nation_rank} < {% parameter top_rank_limit %}
           THEN
             CASE
-              WHEN ${nation_rank}< 11 THEN  CONCAT('0', CAST(${nation_rank} AS STRING))
+              WHEN ${nation_rank}< 10 THEN  CONCAT('0', CAST(${nation_rank} AS STRING))
               ELSE CAST(${nation_rank} AS STRING)
             END
         ELSE 'Other'
