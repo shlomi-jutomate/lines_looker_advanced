@@ -49,15 +49,15 @@ view: top_n_nations {
     default_value: "25"
     allowed_value: {
       label: "Top 3"
-      value: "3"
+      value: "4"
     }
     allowed_value: {
       label: "Top 5"
-      value: "5"
+      value: "6"
     }
     allowed_value: {
       label: "Top 10"
-      value: "10"
+      value: "11"
     }
   }
 
