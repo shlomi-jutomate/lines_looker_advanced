@@ -41,15 +41,21 @@ view: orders{
     type: number
     sql: ${TABLE}.total_price ;;
   }
+
   measure: count {
     type: count
     approximate_threshold: 100000
   }
 
+  measure: total_orders_price{
+    type: sum
+    sql:  ${total_price} ;;
+  }
+
   measure: revenue_per_year_and_prev{
     type: period_over_period
     description: "total revenue per year"
-    based_on: orders.total_price
+    based_on: orders.total_orders_price
     based_on_time: orders.order_date
     kind: previous
     period: year
@@ -58,7 +64,7 @@ view: orders{
   measure: revenue_per_month_and_prev{
     type: period_over_period
     description: "total revenue per month"
-    based_on: orders.total_price
+    based_on: orders.total_orders_price
     based_on_time: orders.order_date
     kind: previous
     period: month
