@@ -45,4 +45,14 @@ view: orders{
     type: count
     approximate_threshold: 100000
   }
+
+  measure: revenue_per_year_and_prev{
+    type: period_over_period
+    description: "total revenue per year"
+    based_on: orders.total_price
+    based_on_time: orders.order_date
+    kind: previous
+    period: year
+  }
+
 }
