@@ -57,7 +57,7 @@ view: orders{
 
   measure: revenue_per_month_and_prev{
     type: period_over_period
-    description: "total revenue per year"
+    description: "total revenue per month"
     based_on: orders.total_price
     based_on_time: orders.order_date
     kind: previous
